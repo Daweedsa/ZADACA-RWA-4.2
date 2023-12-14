@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izračun godina</title>
+</head>
+<body>
+
+    <form id="godineForm">
+        <label for="datumRodjenja">Unesite datum rođenja:</label>
+        <input type="date" id="datumRodjenja" name="datumRodjenja">
+
+        <label for="godinaRodjenja">Unesite godinu rođenja:</label>
+        <input type="number" id="godinaRodjenja" name="godinaRodjenja">
+
+        <button type="button" onclick="izracunajGodine()">Izračunaj</button>
+    </form>
+
+    <script>
+        function izracunajGodine() {
+            
+            const datumRodjenja = new Date(document.getElementById('datumRodjenja').value);
+            const godinaRodjenja = parseInt(document.getElementById('godinaRodjenja').value);
+
+            
+            if (!isNaN(godinaRodjenja) && !isNaN(datumRodjenja.getTime())) {
+                
+                const trenutniDatum = new Date();
+
+              
+                const razlikaGodina = trenutniDatum.getFullYear() - godinaRodjenja;
+
+                
+                if (trenutniDatum.getMonth() < datumRodjenja.getMonth() ||
+                    (trenutniDatum.getMonth() === datumRodjenja.getMonth() && trenutniDatum.getDate() < datumRodjenja.getDate())) {
+                    razlikaGodina--;
+                }
+
+              
+                alert(`Imate ${razlikaGodina} godina.`);
+            } else {
+                
+                alert("Unesite valjane podatke.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+

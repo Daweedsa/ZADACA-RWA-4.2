@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation of Means</title>
+</head>
+<body>
+
+    <script>
+        
+        function aritmetickaSredina(numbers) {
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            return sum / numbers.length;
+        }
+
+    
+        function geometrijskaSredina(numbers) {
+            const product = numbers.reduce((acc, num) => acc * num, 1);
+            return Math.pow(product, 1 / numbers.length);
+        }
+
+      
+        const inputString = prompt("Unesite brojeve odvojene zarezom:");
+        
+      
+        const numbers = inputString.split(',').map(num => parseInt(num.trim(), 10));
+
+      
+        const aritmeticka = aritmetickaSredina(numbers);
+        const geometrijska = geometrijskaSredina(numbers);
+
+      
+        document.write(`<p>Uneseni brojevi: ${numbers.join(', ')}</p>`);
+        document.write(`<p>Aritmetička sredina: ${aritmeticka}</p>`);
+        document.write(`<p>Geometrijska sredina: ${geometrijska}</p>`);
+    </script>
+
+</body>
+</html>

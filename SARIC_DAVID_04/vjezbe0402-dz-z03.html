@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unos Ocjene</title>
+</head>
+<body>
+
+    <form id="ocjenaForm">
+        <label for="ocjenaInput">Unesite ocjenu (1-5):</label>
+        <input type="text" id="ocjenaInput" name="ocjena">
+        <button type="button" onclick="prikaziOcjenu()">Provjeri ocjenu</button>
+    </form>
+
+    <script>
+        function prikaziOcjenu() {
+            
+            const ocjenaInput = document.getElementById('ocjenaInput').value;
+
+           
+            if (ocjenaInput >= 1 && ocjenaInput <= 5) {
+               
+                switch (parseInt(ocjenaInput)) {
+                    case 1:
+                        alert("Ocjena: 1 - Nedovoljan");
+                        break;
+                    case 2:
+                        alert("Ocjena: 2 - Dovoljan");
+                        break;
+                    case 3:
+                        alert("Ocjena: 3 - Dobar");
+                        break;
+                    case 4:
+                        alert("Ocjena: 4 - Vrlo dobar");
+                        break;
+                    case 5:
+                        alert("Ocjena: 5 - Odličan");
+                        break;
+                }
+            } else {
+                
+                alert("Unesite valjanu ocjenu (1-5).");
+            }
+        }
+    </script>
+
+</body>
+</html>
